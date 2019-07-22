@@ -13,10 +13,13 @@ $( document ).ready(function() {
       // pulisco l'input quando invio
       $("#msginput").val("");
       //genero una risposta ad ogni invio
+      function testobianco(){
       $(".chat").append(
         "<section class='utente-bianco'>" + "<p>"+ "ok" +"</p>" + "</section>"
       )
-
+      console.log(testobianco);
+    }
+    setTimeout(testobianco,1000)
 
 })
 
