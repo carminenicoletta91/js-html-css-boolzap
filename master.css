@@ -16,17 +16,49 @@ body{
 .dx{
   height:100%;
   background:black;
-
-
 }
 .sinistra-fixed{
-  height:70px;
+  display: flex;
+  justify-content:space-between;
+  align-items:center;
+  height:60px;
   background:rgb(234,234,234);
 }
+.sinistra-fixed-sx img , .destra-fixed-sx img{
+  width:50px;
+  height:50px;
+  margin:5px 5px 0 10px;
+  border-radius:50%;
+}
+
+.sinistra-fixed-dx a, .destra-fixed-dx a, .send-message a{
+  margin-right:20px;
+  text-decoration: none;
+  color:black;
+  opacity:0.5;
+  font-size:20px;
+}
+.sinistra-fixed-dx a:hover,.destra-fixed-dx a:hover, .send-message a:hover{
+  opacity:1;
+}
 .destra-fixed{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   background:gray;
-  height:70px;
+  height:60px;
   background:rgb(234,234,234);
+}
+.destra-fixed-sx{
+  display: flex;
+  align-items: center;
+}
+.destra-fixed-sx p{
+  color:black;
+  opacity:0.6;
+}
+.destra-fixed-dx{
+  display: flex;
 }
 .notification{
   height:80px;
@@ -40,24 +72,77 @@ body{
 
 }
 .chat-name {
-  height:calc(100% - 190px);
+
+  height:calc(100% - 180px);
   overflow:auto;
 }
 .chat-name section{
-  height:70px;
+  display: flex;
+  align-items: center;
+  height:60px;
   background:white;
   border-bottom:1px solid #c7c8c9;
 }
+.chat-name section img{
+  height:50px;
+  width:50px;
+  border-radius:50%;
+  margin-left:10px;
+}
+.chat-name section:hover{
+  background-color:rgb(234,234,234);
+}
+.message-name{
+  margin-left:20px;
+}
+.message-name p{
+  color:black;
+  opacity:0.6;
+}
 .chat{
-  height:calc(100% - 140px) ;
+  height:calc(100% - 120px) ;
   background-image:url("sfondochat.png");
   overflow: auto;
 }
-.chat section{
-  height:80px;
+
+.send-message{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height:60px;
+  background:rgb(234,234,234);
+}
+.send-message input{
+  width:70%;
+  height:40px;
+}
+.utente-verde{
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-right:30px;
 
 }
-.send-message{
-  height:70px;
-  background:rgb(234,234,234);
+.utente-verde p{
+  background:rgb(213,249,186);
+  color:black;
+  padding:10px 30px;
+  border-radius:15px;
+  margin-top:10px;
+  margin-bottom:10px;
+}
+.utente-bianco{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-left:30px;
+
+}
+.utente-bianco p{
+  background:white;
+  color:black;
+  padding:10px 30px;
+  border-radius:15px;
+  margin-top:10px;
+  margin-bottom:10px;
 }
