@@ -1,0 +1,63 @@
+
+body{
+  background:rgb(0,150,136);
+}
+
+.red{
+  background-color:red;
+  margin:3% 0;
+  height:90vh;
+}
+.sx{
+  border-right:1px solid black;
+  height:100%;
+  background:white;
+}
+.dx{
+  height:100%;
+  background:black;
+
+
+}
+.sinistra-fixed{
+  height:70px;
+  background:rgb(234,234,234);
+}
+.destra-fixed{
+  background:gray;
+  height:70px;
+  background:rgb(234,234,234);
+}
+.notification{
+  height:80px;
+  background:rgb(142, 218, 252);
+  border:1px solid white;
+
+}
+.search{
+  height:40px;
+  background:rgb(230,230,230);
+
+}
+.chat-name {
+  height:calc(100% - 190px);
+  overflow:auto;
+}
+.chat-name section{
+  height:70px;
+  background:white;
+  border-bottom:1px solid #c7c8c9;
+}
+.chat{
+  height:calc(100% - 140px) ;
+  background-image:url("sfondochat.png");
+  overflow: auto;
+}
+.chat section{
+  height:80px;
+
+}
+.send-message{
+  height:70px;
+  background:rgb(234,234,234);
+}
