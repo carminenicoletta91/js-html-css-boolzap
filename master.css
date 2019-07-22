@@ -31,7 +31,7 @@ body{
   border-radius:50%;
 }
 
-.sinistra-fixed-dx a, .destra-fixed-dx a, .send-message a{
+.sinistra-fixed-dx a, .destra-fixed-dx a, .send-message a,.notification a{
   margin-right:20px;
   text-decoration: none;
   color:black;
@@ -61,16 +61,58 @@ body{
   display: flex;
 }
 .notification{
+  display: flex;
+  align-items:center;
   height:80px;
   background:rgb(142, 218, 252);
   border:1px solid white;
 
 }
+.notification > a{
+  font-size:40px;
+  margin-left:20px;
+}
+
+.alert{
+  display: flex;
+  justify-content:flex-start;
+  flex-direction: column;
+  font-size:10px;
+}
+.alert a p{
+  font-size:15px;
+  text-decoration: underline;
+}
 .search{
+  display: flex;
+  justify-content: center;
+  align-items: center;
   height:40px;
   background:rgb(230,230,230);
 
 }
+.search-input{
+  display: flex;
+  align-items: center;
+  height:30px;
+  width:98%;
+  background-color:white;
+}
+.search-input i{
+  font-size:20px;
+  color:rgba(0, 0, 0, 0.5);
+  margin-left:15px;
+}
+.search-input p{
+  font-size:15px;
+  color:rgba(0, 0, 0, 0.5);
+  margin-left:20px;
+}
+/* .search input{
+  height:30px;
+  width:95%;
+
+} */
 .chat-name {
 
   height:calc(100% - 180px);
