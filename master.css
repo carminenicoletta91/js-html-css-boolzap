@@ -4,24 +4,22 @@ body{
 }
 
 .red{
-  background-color:red;
+
   margin:3% 0;
   height:90vh;
 }
 .sx{
   border-right:1px solid black;
   height:100%;
-  background:white;
 }
 .dx{
   height:100%;
-  background:black;
 }
 .sinistra-fixed{
   display: flex;
   justify-content:space-between;
   align-items:center;
-  height:60px;
+  height:80px;
   background:rgb(234,234,234);
 }
 .sinistra-fixed-sx img , .destra-fixed-sx img{
@@ -36,7 +34,7 @@ body{
   text-decoration: none;
   color:black;
   opacity:0.5;
-  font-size:20px;
+  font-size:25px;
 }
 .sinistra-fixed-dx a:hover,.destra-fixed-dx a:hover, .send-message a:hover{
   opacity:1;
@@ -46,7 +44,7 @@ body{
   justify-content: space-between;
   align-items: center;
   background:gray;
-  height:60px;
+  height:80px;
   background:rgb(234,234,234);
 }
 .destra-fixed-sx{
@@ -108,20 +106,15 @@ body{
   color:rgba(0, 0, 0, 0.5);
   margin-left:20px;
 }
-/* .search input{
-  height:30px;
-  width:95%;
 
-} */
 .chat-name {
-
-  height:calc(100% - 180px);
+  height:calc(100% - 200px);
   overflow:auto;
 }
 .chat-name section{
   display: flex;
   align-items: center;
-  height:60px;
+  height:80px;
   background:white;
   border-bottom:1px solid #c7c8c9;
 }
@@ -142,7 +135,7 @@ body{
   opacity:0.6;
 }
 .chat{
-  height:calc(100% - 120px) ;
+  height:calc(100% - 160px) ;
   background-image:url("sfondochat.png");
   overflow: auto;
 }
@@ -151,18 +144,19 @@ body{
   display: flex;
   justify-content: space-around;
   align-items: center;
-  height:60px;
+  height:80px;
   background:rgb(234,234,234);
 }
 .send-message input{
   width:70%;
-  height:40px;
+  height:50px;
 }
 .utente-verde{
   display: flex;
   justify-content: flex-end;
   align-items: center;
   margin-right:30px;
+  margin-left:30px;
 
 }
 .utente-verde p{

@@ -19,7 +19,7 @@ $( document ).ready(function() {
       )
       console.log(testobianco);
     }
-    setTimeout(testobianco,1000)
+    setTimeout(testobianco,1000);
 
 })
 
