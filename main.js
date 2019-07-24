@@ -23,7 +23,7 @@ $( document ).ready(function() {
 
   });
     // richiamo una funzione quando premo tasti sul mio input
-    $(".search .search-input input").keypress(
+    $(".search .search-input input").keyup(
 
     // funzione di ricerca
     function search(){
