@@ -118,20 +118,20 @@ body{
   height:calc(100% - 200px);
   overflow:auto;
 }
-.chat-name section{
+.chat-name > div{
   display: flex;
   align-items: center;
   height:80px;
   background:white;
   border-bottom:1px solid #c7c8c9;
 }
-.chat-name section img{
+.chat-name div img{
   height:50px;
   width:50px;
   border-radius:50%;
   margin-left:10px;
 }
-.chat-name section:hover{
+.chat-name > div:hover{
   background-color:rgb(234,234,234);
 }
 .message-name{

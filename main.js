@@ -8,14 +8,14 @@ $( document ).ready(function() {
       console.log(inputval);
       // inserisco il mio testo nell'apposita sezione contenente classe utente-verde
       $(".chat").append(
-        "<section class='utente-verde'>" + "<p>"+ inputval +"</p>" + "</section>"
+        "<div class='utente-verde'>" + "<p>"+ inputval +"</p>" + "</div>"
       );
       // pulisco l'input quando invio
       $("#msginput").val("");
       //genero una risposta ad ogni invio
       function testobianco(){
       $(".chat").append(
-        "<section class='utente-bianco'>" + "<p>"+ "ok" +"</p>" + "</section>"
+        "<div class='utente-bianco'>" + "<p>"+ "ok" +"</p>" + "</div>"
       );
       console.log(testobianco);
     }
@@ -26,11 +26,11 @@ $( document ).ready(function() {
     $(".search .search-input input").keyup(
 
     // funzione di ricerca
-    function search(){
+    function (){
       // nascondo tutte le mie sezioni contenenti le chat
-      $(".chat-name section").hide();
+      $(".chat-name > div").hide();
       // scorro nei nomi delle chat
-      $(".chat-name section .message-name h2" ).each(function( index) {
+      $(".chat-name > div .message-name h2" ).each(function( index) {
         var trova;
         // creo oggetto che contiene il valore che digito in input
         var inputval = $(".search .search-input input").val();
@@ -44,7 +44,7 @@ $( document ).ready(function() {
         if( nametemp.includes(inputval)){
           console.log("sei qui:" + trova);
           // scorro nelle varie sezioni
-          $(".chat-name section").each(function(index)
+          $(".chat-name > div").each(function(index)
 
           {
             // se l'indice della mia sezione è uguale a quello del mio nome chat
