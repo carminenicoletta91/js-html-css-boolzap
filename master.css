@@ -47,10 +47,7 @@ body{
   height:80px;
   background:rgb(234,234,234);
 }
-.destra-fixed-sx{
-  display: flex;
-  align-items: center;
-}
+
 .destra-fixed-sx p{
   color:black;
   opacity:0.6;
@@ -141,7 +138,7 @@ body{
   color:black;
   opacity:0.6;
 }
-.chat{
+.chat  {
   height:calc(100% - 160px) ;
   background-image:url("sfondochat.png");
   overflow: auto;
@@ -188,4 +185,16 @@ body{
   border-radius:15px;
   margin-top:10px;
   margin-bottom:10px;
+}
+
+.chat .elemento{
+  display: none;
+}
+.destra-fixed-sx .flex-in{
+  display: flex;
+  align-items: center;
+}
+
+.destra-fixed-sx > div {
+  display:none;
 }
