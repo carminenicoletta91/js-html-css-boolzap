@@ -155,6 +155,9 @@ body{
   width:70%;
   height:50px;
 }
+.send-message a i.message{
+  display: none;
+}
 .utente-verde{
 
   display: flex;
@@ -190,16 +193,21 @@ body{
   margin-bottom:10px;
 }
 
-.chat .elemento{
+.chat > div{
   display: none;
 }
-.destra-fixed-sx .flex-in{
-  display: flex;
-  align-items: center;
+.chat >div.active{
+  display: block
+}
+.destra-fixed-sx img{
+  display: inline-block
 }
 
-.destra-fixed-sx > div {
-  display:none;
+.destra-fixed-sx >div{
+  display: none;
+}
+.destra-fixed-sx > div.active{
+  display: block;
 }
 /* .menu-a-tendina-bianco,.menu-a-tendina-verde{
   position: absolute;
@@ -213,10 +221,14 @@ body{
   right:12%;
 } */
 
+.flex-in{
+  display: flex;
+  align-items: center;
+}
 
- /* i#off-bianco{
+p.scritta{
   display: none;
 }
-i#off-verde{
-  display: none;
-} */
+.active{
+  display: block;
+}

@@ -41,84 +41,28 @@ $( document ).ready(function() {
 
     });//chiusura funzione search al keypress
 
-      // visualizzo inizialmente la prima chat
-      var schermo = $(".chat .elemento.uno");
-      schermo.show();
-      // nascondo tutti i contatti nel nav bar in alto a destra
-      var eliminachat = $(".destra-fixed-sx > div");
-      eliminachat.hide();
-      // mostro solo il primo contatto nella nav bar in alto
-      var schermoassociato = $(".destra-fixed-sx .uno");
-      schermoassociato.show();
-
-      // funzione quando clicco su un contatto nel menu a sinistra
-      $(".chat-name > div").click(function(){
-
-        var temp = $(this);
-        console.log(temp);
-        // se il mio oggetto cliccato ha
-        if(temp.hasClass("uno")){//classe associata uno
-          $(".chat .elemento").hide();
-          $(".chat .elemento.uno").show();
-          schermo = $(".chat .elemento.uno");
-          schermoassociato = $(".destra-fixed-sx .uno");
-          eliminachat.hide();
-          schermoassociato.show();
-       }else if(temp.hasClass("due")){//classe associata due
-         $(".chat .elemento").hide();
-         $(".chat .elemento.due").show();
-         schermo = $(".chat .elemento.due");
-         schermoassociato = $(".destra-fixed-sx .due");
-         eliminachat.hide();
-         schermoassociato.show();
-       }else if(temp.hasClass("tre")){//classe associata tre
-         $(".chat .elemento").hide();
-         $(".chat .elemento.tre").show();
-         schermo = $(".chat .elemento.tre");
-         schermoassociato = $(".destra-fixed-sx .tre");
-         eliminachat.hide();
-         schermoassociato.show();
-       }else if(temp.hasClass("quattro")){//classe associata quattro
-         $(".chat .elemento").hide();
-         $(".chat .elemento.quattro").show();
-         schermo = $(".chat .elemento.quattro");
-         schermoassociato = $(".destra-fixed-sx .quattro");
-         eliminachat.hide();
-         schermoassociato.show();
-       }else if(temp.hasClass("cinque")){//classe associata cinque
-         $(".chat .elemento").hide();
-         $(".chat .elemento.cinque").show();
-         schermo = $(".chat .elemento.cinque");
-         schermoassociato = $(".destra-fixed-sx .cinque");
-         eliminachat.hide();
-         schermoassociato.show();
-       }else if(temp.hasClass("sei")){//classe associata sei
-         $(".chat .elemento").hide();
-         $(".chat .elemento.sei").show();
-         schermo = $(".chat .elemento.sei");
-         schermoassociato = $(".destra-fixed-sx .sei");
-         eliminachat.hide();
-         schermoassociato.show();
-       }else if(temp.hasClass("sette")){//classe associata sette
-         $(".chat .elemento").hide();
-         $(".chat .elemento.sette").show();
-         schermo = $(".chat .elemento.sette");
-         schermoassociato = $(".destra-fixed-sx .sette");
-         eliminachat.hide();
-         schermoassociato.show();
-       }else if(temp.hasClass("otto")){//classe associata otto
-         $(".chat .elemento").hide();
-         $(".chat .elemento.otto").show();
-         schermo = $(".chat .elemento.otto");
-         schermoassociato = $(".destra-fixed-sx .otto");
-         eliminachat.hide();
-         schermoassociato.show();
-       }
+      // funzione al click per entrare nella chat relativa al contatto cliccato
+      $(".chat-name > div").click(
+        function(){
+          var attrref = $(this).attr('refchat');
+          console.log(attrref);
+          $(".chat > div").removeClass('active');
+          $(".destra-fixed-sx > div").removeClass('active');
+          // visualizzo il nome del contatto cliccato
+          $('.destra-fixed-sx > div[refchat="' + attrref +'"]').addClass("active");
+          // visualizzo la chat del contatto
+          $('.chat > div[refchat="' + attrref +'"]').addClass("active");
+        }
+      );
+      // funzione per far apparire icona del send quando premi un tasto su input
+       $(".send-message input#msginput").keypress(
+         function(){
+           $(".send-message a i.message").show();
+           $(".send-message a i.audio-record").hide();
 
 
-
-       });
-
+         }
+       );
 
 
 
@@ -127,42 +71,37 @@ $( document ).ready(function() {
        $(".send-message a i.send ").click(
          // funzione per inserire il messaggio nella chat
          function(){
+
+           $(".send-message a i.message").hide();
+           $(".send-message a i.audio-record").show();
            var inputval = $("#msginput").val();
            console.log(inputval);
            // inserisco il mio testo nell'apposita sezione contenente classe utente-verde
-           schermo.append(
-             "<div class='utente-verde'>" + "<p >"+ inputval +"</p>"
+           $(".chat >div.active").append(
+             "<div class='utente-verde'>" + "<p >"+ inputval +"</p>"+"</div>"
              // +"<i class='fas fa-caret-down'id='off-verde'>"+"</i>" +"</div>"
-             // + "<div class='menu-a-tendina-verde'>" + "<p>"+ "elimina" +"</p>" + "</div>"
+             // + "<div class='menu-a-tendina-verde'>" + "<p>"+ "elimina" +"</p>" + ""
            );
+           // mostro il p relativo al sta scrivendo
+            $("p.scritta").show();
+            // nascono il p relativo all'utlimo messaggio
+            $("p.accesso").hide();
            // pulisco l'input quando invio
            $("#msginput").val("");
            //genero una risposta ad ogni invio
            function testobianco(){
-           schermo.append(
-             "<div class='utente-bianco'>" + "<p>"+ "ok" +"</p>"
+          $(".chat >div.active").append(
+             "<div class='utente-bianco'>" + "<p>"+ "ok" +"</p>"+"</div>"
              // +"<i class='fas fa-caret-down' id='off-bianco'>"+"</i>" +"</div>"
              // + "<div class='menu-a-tendina-bianco'>" + "<p>"+ "elimina" +"</p>" + "</div>"
            );
+           $("p.scritta").hide();
+           $("p.accesso").show();
+
            console.log(testobianco);
          }
          setTimeout(testobianco,1000);
 
        });
-       // $('.chat').on('mouseenter', '.utente-verde >p', function()
-       // {
-       //   $("i#off-verde").toggle();
-       // })
-       // $('.chat').on('mouseenter', '.utente-bianco >p', function()
-       // {
-       //   $("i#off-bianco").toggle();
-       // })
-       // $('.chat').on('click', 'i#off-bianco', function()
-       // {
-       //   $(".menu-a-tendina-bianco").toggle();
-       // })
-       // $('.chat').on('click', 'i#off-verde', function()
-       // {
-       //   $(".menu-a-tendina-verde").toggle();
-       // })
+
 });
