@@ -40,6 +40,7 @@ $( document ).ready(function() {
       });//chiusura each lettura nome chat
 
     });//chiusura funzione search al keypress
+
       // visualizzo inizialmente la prima chat
       var schermo = $(".chat .elemento.uno");
       schermo.show();
@@ -113,8 +114,11 @@ $( document ).ready(function() {
          eliminachat.hide();
          schermoassociato.show();
        }
-        return schermo;
+
+
+
        });
+
 
 
 
@@ -127,22 +131,38 @@ $( document ).ready(function() {
            console.log(inputval);
            // inserisco il mio testo nell'apposita sezione contenente classe utente-verde
            schermo.append(
-             "<div class='utente-verde'>" + "<p>"+ inputval +"</p>" + "</div>"
+             "<div class='utente-verde'>" + "<p >"+ inputval +"</p>"
+             // +"<i class='fas fa-caret-down'id='off-verde'>"+"</i>" +"</div>"
+             // + "<div class='menu-a-tendina-verde'>" + "<p>"+ "elimina" +"</p>" + "</div>"
            );
            // pulisco l'input quando invio
            $("#msginput").val("");
            //genero una risposta ad ogni invio
            function testobianco(){
            schermo.append(
-             "<div class='utente-bianco'>" + "<p>"+ "ok" +"</p>" + "</div>"
+             "<div class='utente-bianco'>" + "<p>"+ "ok" +"</p>"
+             // +"<i class='fas fa-caret-down' id='off-bianco'>"+"</i>" +"</div>"
+             // + "<div class='menu-a-tendina-bianco'>" + "<p>"+ "elimina" +"</p>" + "</div>"
            );
            console.log(testobianco);
          }
          setTimeout(testobianco,1000);
 
        });
-
-
-
-
+       // $('.chat').on('mouseenter', '.utente-verde >p', function()
+       // {
+       //   $("i#off-verde").toggle();
+       // })
+       // $('.chat').on('mouseenter', '.utente-bianco >p', function()
+       // {
+       //   $("i#off-bianco").toggle();
+       // })
+       // $('.chat').on('click', 'i#off-bianco', function()
+       // {
+       //   $(".menu-a-tendina-bianco").toggle();
+       // })
+       // $('.chat').on('click', 'i#off-verde', function()
+       // {
+       //   $(".menu-a-tendina-verde").toggle();
+       // })
 });
