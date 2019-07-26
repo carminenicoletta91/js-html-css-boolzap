@@ -12,9 +12,13 @@ $( document ).ready(function() {
 
     // richiamo una funzione quando premo tasti sul mio input
     $(".search .search-input input").keyup(
+      function(){
+        search();
+      }
+    );
 
     // funzione di ricerca
-    function (){
+    function search(){
       // nascondo tutte le mie sezioni contenenti le chat
       $(".chat-name > div").hide();
       // scorro nei nomi delle chat
@@ -46,8 +50,8 @@ $( document ).ready(function() {
         }
 
       });//chiusura each lettura nome chat
+    }
 
-    });//chiusura funzione search al keypress
 
       // funzione al click per entrare nella chat relativa al contatto cliccato
       $(".chat-name > div").click(
@@ -68,7 +72,13 @@ $( document ).ready(function() {
            $(".send-message a i.message").show();
            $(".send-message a i.audio-record").hide();
 
-
+           // se premo il tasto invio
+           if(event.which == 13){
+             console.log(event.which);
+             invio();
+             $(".send-message a i.message").hide();
+             $(".send-message a i.audio-record").show();
+           }
          }
        );
 
@@ -76,46 +86,40 @@ $( document ).ready(function() {
 
 
 
-
+       // quando clicco su icona invio
        $(".send-message a i.send ").click(
-         // funzione per inserire il messaggio nella chat
-         function(){
-
+         function (){
+           invio();
            $(".send-message a i.message").hide();
            $(".send-message a i.audio-record").show();
+       })
+
+         // funzione per inserire il messaggio nella chat
+         function invio(){
            var inputval = $("#msginput").val();
            console.log(inputval);
            // inserisco il mio testo nell'apposita sezione contenente classe utente-verde
            $(".chat >div.active").append(
              "<div class='utente-verde'>" +"<div class='putente'>" +"<p >"+ inputval  +"</p>"
              +"<div class='putenteinput'>"+"<p >"+ orario()+"</p>"+"</div>" +"</div>"+"</div>"
-
-
-
            );
            // mostro il p relativo al sta scrivendo
-            $("p.scritta").show();
-            // nascono il p relativo all'utlimo messaggio
-            $("p.accesso").hide();
+           $("p.scritta").show();
+           // nascono il p relativo all'utlimo messaggio
+           $("p.accesso").hide();
            // pulisco l'input quando invio
            $("#msginput").val("");
            //genero una risposta ad ogni invio
            function testobianco(){
-          $(".chat >div.active").append(
-            "<div class='utente-bianco'>" +"<div class='putente'>" +"<p >"+ "ok" +"</p>"
-            +"<div class='putenteinputbianco'>"+"<p >"+ orario()+"</p>"+"</div>" +"</div>"+"</div>"
-
-
-
-           );
-
-           $("p.scritta").hide();
-           $("p.accesso").show();
-
-           console.log(testobianco);
+             $(".chat >div.active").append(
+               "<div class='utente-bianco'>" +"<div class='putente'>" +"<p >"+ "ok" +"</p>"
+               +"<div class='putenteinputbianco'>"+"<p >"+ orario()+"</p>"+"</div>" +"</div>"+"</div>"
+             );
+             $("p.scritta").hide();
+             $("p.accesso").show();
+             console.log(testobianco);
+           }
+           setTimeout(testobianco,1000);
          }
-         setTimeout(testobianco,1000);
-
-       });
 
 });
