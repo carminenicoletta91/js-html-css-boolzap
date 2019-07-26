@@ -1,14 +1,14 @@
 
 // creare funzione per scrivere messaggio e mandarlo nella chat
 $( document ).ready(function() {
-
+  function orario(){
   var data = new Date () ;
   var ora =data.getHours();
   var minuti = data.getMinutes();
   var scrivi = ora + ":"+minuti;
-  console.log(scrivi);
-  document.getElementById('orario').innerHTML = scrivi;
-  
+  return scrivi;
+
+}
 
 
 
@@ -93,7 +93,7 @@ $( document ).ready(function() {
            console.log(inputval);
            // inserisco il mio testo nell'apposita sezione contenente classe utente-verde
            $(".chat >div.active").append(
-             "<div class='utente-verde'>" + "<p >"+ inputval +"("+ scrivi +")" +"</p>"+"</div>"
+             "<div class='utente-verde'>" + "<p >"+ inputval +"("+ orario() +")" +"</p>"+"</div>"
              // +"<i class='fas fa-caret-down'id='off-verde'>"+"</i>" +"</div>"
              // + "<div class='menu-a-tendina-verde'>" + "<p>"+ "elimina" +"</p>" + ""
            );
@@ -106,13 +106,15 @@ $( document ).ready(function() {
            //genero una risposta ad ogni invio
            function testobianco(){
           $(".chat >div.active").append(
-             "<div class='utente-bianco'>" + "<p>"+ "ok" +"("+ scrivi +")"+"</p>"+"</div>"
+             "<div class='utente-bianco'>" + "<p>"+ "ok" +"("+ orario() +")"+"</p>"+"</div>"
+
              // +"<i class='fas fa-caret-down' id='off-bianco'>"+"</i>" +"</div>"
              // + "<div class='menu-a-tendina-bianco'>" + "<p>"+ "elimina" +"</p>" + "</div>"
            );
+
            $("p.scritta").hide();
            $("p.accesso").show();
-
+           $("#orarioacc").html(orario());
            console.log(testobianco);
          }
          setTimeout(testobianco,1000);
