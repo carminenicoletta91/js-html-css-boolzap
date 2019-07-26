@@ -1,7 +1,21 @@
+
 // creare funzione per scrivere messaggio e mandarlo nella chat
 $( document ).ready(function() {
 
+  var data = new Date () ;
+  var ora =data.getHours();
+  var minuti = data.getMinutes();
+  var scrivi = ora + ":"+minuti;
+  console.log(scrivi);
+  document.getElementById('orario').innerHTML = scrivi;
+  
 
+
+
+
+
+  //  document.getElementById('orario').innerHTML = scrivi;
+  // console.log(ora + ":" + minuti);
     // richiamo una funzione quando premo tasti sul mio input
     $(".search .search-input input").keyup(
 
@@ -68,6 +82,7 @@ $( document ).ready(function() {
 
 
 
+
        $(".send-message a i.send ").click(
          // funzione per inserire il messaggio nella chat
          function(){
@@ -78,7 +93,7 @@ $( document ).ready(function() {
            console.log(inputval);
            // inserisco il mio testo nell'apposita sezione contenente classe utente-verde
            $(".chat >div.active").append(
-             "<div class='utente-verde'>" + "<p >"+ inputval +"</p>"+"</div>"
+             "<div class='utente-verde'>" + "<p >"+ inputval +"("+ scrivi +")" +"</p>"+"</div>"
              // +"<i class='fas fa-caret-down'id='off-verde'>"+"</i>" +"</div>"
              // + "<div class='menu-a-tendina-verde'>" + "<p>"+ "elimina" +"</p>" + ""
            );
@@ -91,7 +106,7 @@ $( document ).ready(function() {
            //genero una risposta ad ogni invio
            function testobianco(){
           $(".chat >div.active").append(
-             "<div class='utente-bianco'>" + "<p>"+ "ok" +"</p>"+"</div>"
+             "<div class='utente-bianco'>" + "<p>"+ "ok" +"("+ scrivi +")"+"</p>"+"</div>"
              // +"<i class='fas fa-caret-down' id='off-bianco'>"+"</i>" +"</div>"
              // + "<div class='menu-a-tendina-bianco'>" + "<p>"+ "elimina" +"</p>" + "</div>"
            );
