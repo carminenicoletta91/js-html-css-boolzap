@@ -10,6 +10,7 @@ body{
   top:0;
   z-index:-1;
 }
+
 .red{
 
   margin:3% 0;
@@ -149,6 +150,7 @@ body{
   height:calc(100% - 160px) ;
   background-image:url("sfondochat.png");
   overflow: auto;
+
 }
 
 .send-message{
@@ -169,33 +171,51 @@ body{
 
   display: flex;
   justify-content: flex-end;
-  align-items: center;
+
   margin-right:30px;
   margin-left:30px;
 
+
 }
-.utente-verde p{
+.putente{
   position: relative;
+
+}
+.putenteinput{
+  position: absolute;
+  top:38px;
+  right:8px;
+  font-size:13px;
+}
+.putenteinputbianco{
+  position: absolute;
+  top:39px;
+  left:43px;
+  font-size:13px;
+}
+.utente-verde .putente >p{
+
   background:rgb(213,249,186);
   color:black;
-  padding:10px 30px;
+
+  padding:5px 50px 20px 15px;
   border-radius:15px;
   margin-top:10px;
   margin-bottom:10px;
 }
 .utente-bianco{
-  position: relative;
+
   display: flex;
   justify-content: flex-start;
   align-items: center;
   margin-left:30px;
 
 }
-.utente-bianco p{
+.utente-bianco .putente > p{
   background:white;
   color:black;
-  padding:10px 30px;
-  border-radius:15px;
+  padding:5px 50px 20px 15px;
+  border-radius:10px;
   margin-top:10px;
   margin-bottom:10px;
 }

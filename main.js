@@ -87,7 +87,10 @@ $( document ).ready(function() {
            console.log(inputval);
            // inserisco il mio testo nell'apposita sezione contenente classe utente-verde
            $(".chat >div.active").append(
-             "<div class='utente-verde'>" + "<p >"+ inputval +"("+ orario() +")" +"</p>"+"</div>"
+             "<div class='utente-verde'>" +"<div class='putente'>" +"<p >"+ inputval  +"</p>"
+             +"<div class='putenteinput'>"+"<p >"+ orario()+"</p>"+"</div>" +"</div>"+"</div>"
+
+
 
            );
            // mostro il p relativo al sta scrivendo
@@ -99,7 +102,9 @@ $( document ).ready(function() {
            //genero una risposta ad ogni invio
            function testobianco(){
           $(".chat >div.active").append(
-             "<div class='utente-bianco'>" + "<p>"+ "ok" +"("+ orario() +")"+"</p>"+"</div>"
+            "<div class='utente-bianco'>" +"<div class='putente'>" +"<p >"+ "ok" +"</p>"
+            +"<div class='putenteinputbianco'>"+"<p >"+ orario()+"</p>"+"</div>" +"</div>"+"</div>"
+
 
 
            );
@@ -110,7 +115,7 @@ $( document ).ready(function() {
            console.log(testobianco);
          }
          setTimeout(testobianco,1000);
-         $(".orarioacc").html(orario());
+
        });
 
 });
