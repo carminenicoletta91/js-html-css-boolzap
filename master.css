@@ -168,7 +168,7 @@ body{
   display: none;
 }
 .utente-verde{
-
+  position: relative;
   display: flex;
   justify-content: flex-end;
 
@@ -204,7 +204,7 @@ body{
   margin-bottom:10px;
 }
 .utente-bianco{
-
+  position: relative;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -236,26 +236,51 @@ body{
 .destra-fixed-sx > div.active{
   display: block;
 }
-/* .menu-a-tendina-bianco,.menu-a-tendina-verde{
-  position: absolute;
+.menu-a-tendina,.menu-a-tendina-bianco{
   display: none;
-  width:120px;
-  background-color:gray;
-  height:30px;
-  border:1px solid black;
+  position: absolute;
+  background:white;
+  width:100px;
+  height:50px;
+  z-index:1;
+  top:57px;
 }
-.menu-a-tendina-verde{
-  right:12%;
-} */
+
+.menu-a-tendina a,.menu-a-tendina-bianco a{
+  text-decoration: none;
+  color:black;
+}
+.menu-a-tendina p .menu-a-tendina-bianco p{
+  height:100%;
+}
+.menu-a-tendina a p:hover ,.menu-a-tendina-bianco a p:hover{
+  background-color:gray;
+  color:white;
+}
 
 .flex-in{
   display: flex;
   align-items: center;
 }
+.flex-in-menu{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
+}
 p.scritta{
   display: none;
 }
 .active{
+  display: block;
+}
+.icona-menu,.icona-menu-bianco{
+  display:none;
+  position: absolute;
+  top:17px;
+  right:7px;
+}
+
+.utente-verde .putente:hover .icona-menu,.utente-bianco .putente:hover .icona-menu-bianco {
   display: block;
 }

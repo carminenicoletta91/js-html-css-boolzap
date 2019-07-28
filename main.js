@@ -10,6 +10,19 @@ $( document ).ready(function() {
       return scrivi;
     }
 
+
+
+
+
+      // funzione per rimuove messaggi
+      function elimina(){
+       $(".chat > div.active  ").on('click','.utente-verde .menu-a-tendina,.utente-bianco .menu-a-tendina-bianco ',function(){
+        $(this).siblings().remove();
+        $(this).remove();
+
+      });
+    }
+     elimina();
     // richiamo una funzione quando premo tasti sul mio input
     $(".search .search-input input").keyup(
       function(){
@@ -51,7 +64,8 @@ $( document ).ready(function() {
 
       });//chiusura each lettura nome chat
     }
-
+      // richiamo funzione eliminamex per poter eliminare i mex al refresh della pagina
+      // senza il click sulla selezione dei contatti
 
       // funzione al click per entrare nella chat relativa al contatto cliccato
       $(".chat-name > div").click(
@@ -64,8 +78,12 @@ $( document ).ready(function() {
           $('.destra-fixed-sx > div[refchat="' + attrref +'"]').addClass("active");
           // visualizzo la chat del contatto
           $('.chat > div[refchat="' + attrref +'"]').addClass("active");
+          elimina();
+
         }
+
       );
+
       // funzione per far apparire icona del send quando premi un tasto su input
        $(".send-message input#msginput").keypress(
          function(){
@@ -96,13 +114,36 @@ $( document ).ready(function() {
 
          // funzione per inserire il messaggio nella chat
          function invio(){
+
            var inputval = $("#msginput").val();
+           // se la mia stringa è vuota
+           if(inputval == ""){
+
+             return alert("stringa vuota");
+             // se utente inserisce uno spazio e preme invio
+           }else if(inputval === " "){
+             return alert("inviare uno spazio non ha senso!!!")
+           }
            console.log(inputval);
            // inserisco il mio testo nell'apposita sezione contenente classe utente-verde
+
+
            $(".chat >div.active").append(
-             "<div class='utente-verde'>" +"<div class='putente'>" +"<p >"+ inputval  +"</p>"
+             "<div class='utente-verde'>"+"<div class='menu-a-tendina'>"+"<a href='#'><p class='flex-in-menu'>"+"Elimina"+"</p></a>"
+             +"</div>" +"<div class='putente'>" +"<p >"+ inputval   +"</p>"
+             +"<i class='fas fa-caret-down icona-menu'>"+"</i>"
+
              +"<div class='putenteinput'>"+"<p >"+ orario()+"</p>"+"</div>" +"</div>"+"</div>"
+
+
            );
+           $(".chat >div.active .utente-verde .icona-menu").click(
+             function(){
+               $(".menu-a-tendina").toggle();
+              
+             }
+           );
+
            // mostro il p relativo al sta scrivendo
            $("p.scritta").show();
            // nascono il p relativo all'utlimo messaggio
@@ -112,7 +153,8 @@ $( document ).ready(function() {
            //genero una risposta ad ogni invio
            function testobianco(){
              $(".chat >div.active").append(
-               "<div class='utente-bianco'>" +"<div class='putente'>" +"<p >"+ "ok" +"</p>"
+               "<div class='utente-bianco'>"+"<div class='menu-a-tendina-bianco'>"+"<a href='#'><p class='flex-in-menu'>"+"Elimina"+"</p></a>"
+                +"</div>"+"<div class='putente'>" +"<p >"+ "ok" +"</p>" +"<i class='fas fa-caret-down icona-menu-bianco'>"+"</i>"
                +"<div class='putenteinputbianco'>"+"<p >"+ orario()+"</p>"+"</div>" +"</div>"+"</div>"
              );
              $("p.scritta").hide();
@@ -122,4 +164,9 @@ $( document ).ready(function() {
            setTimeout(testobianco,1000);
          }
 
+         $(".chat >div.active .utente-verde .icona-menu ").click(
+           function(){
+             $(".menu-a-tendina-bianco").toggle();
+           }
+         );
 });
